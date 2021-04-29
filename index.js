@@ -40,26 +40,43 @@ for (const user of users) {
 }
 
 alert(string)
-// const userid = prompt("What is your ID?")
+const userid = Number(prompt("What is your ID?"));
 
 // - Prompt the user for a user id
 // const userid = prompt("What is your ID?")
- const useridprompt = 1
+//  const useridprompt = 1
 
-// - Display an alert (Step 4)
+
 
 // - with the username (Step 2)
-let username = null
+let theuser = null
 
 
-for (let i = 0, i < users.length , i++) {
+for (let i = 0; i < users.length; i++) {
     const user = users[i]
-  if(useridprompt == user.id) {
-      username = user
+  if(userid === user.id) {
+      theuser = user
   }
 
 }
 
 // - all the todos title that belong to that user (Step 3)
 
+const todosoftheuser = []
 
+for (let i=0; i < todos.length; i++) {
+    const todo = todos[i]
+ if(todo.userId === theuser.id) {
+    todosoftheuser.push(todo)
+ }
+}
+
+// - Display an alert (Step 4)
+console.log(theuser.username)
+for(let i=0; i < todosoftheuser.length; i++){
+    console.log(todosoftheuser[i])
+}
+
+// After you select a user, add the option to either show the todos or add a new todo to the list
+
+let option = Number(prompt("Press 2 to see your to do list"))
